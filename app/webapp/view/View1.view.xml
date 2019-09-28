@@ -1,0 +1,73 @@
+<mvc:View controllerName="zapata.mx.app.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<Panel headerText="{i18n>PanelTitle}" class="sapUiResponsiveMargin" width="auto">
+						<!--<headerContent>-->
+						<Button xmlns="sap.m" text="Borar Registro" id="borrar" icon="sap-icon://paid-leave" press="onDelete"/>
+						<!--</headerContent>-->
+						<content>
+							<!--<Button text="boton" press=".onShowHello" class="sapUiSmallMarginEnd" icon="sap-icon://world"/>-->
+							<!--<Input value="{/recipient/name}" valueLiveUpdate="true" width="60%"/>-->
+							<!--<Text text="Hello {/recipient/name}" class="sapUiSmallMargin"/>-->
+							<List id="DocFI" items="{ path : '/PAGOSSet', sorter : { path : 'Xdel' , group : true } }" growing="true" growingScrollToLoad="true">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="{i18n>ListTitle}"/>
+										<ToolbarSpacer/>
+										<SearchField width="50%" search=".onFilterInvoices"/>
+									</Toolbar>
+								</headerToolbar>
+								<!--<<CheckBox text="{Vbeln}" press="onSelectionChange" showMarkers="true" icon="sap-icon://document-text"/><CheckBox text="{Vbeln}" press="onSelectionChange" showMarkers="true" icon="sap-icon://document-text"/>  type="Navigation" press="handleListItemPress" title="{Vbeln}" icon="sap-icon://document-text">-->
+								<!--	<attributes>-->
+								<!--		<ObjectAttribute text="Factura relacionada: {VbelnF}"/>-->
+								<!--	</attributes>-->
+								<!--	<firstStatus>-->
+								<!--		<ObjectStatus text="{= ${Xdel}? 'Estatus Borrado' : 'Pago Activo' }" state="{= ${Xdel}? 'Error' : 'Success' }"/>-->
+								<!--	</firstStatus>-->
+								<!--</ObjectListItem>-->
+								<CustomListItem type="Navigation" press="handleListItemPress">
+									<CheckBox text="{Vbeln}" id="chkId" showMarkers="true"/>
+									<Text text="{= ${Xdel}? 'Estatus Borrado' : 'Pago Activo' }" state="{= ${Xdel}? 'Error' : 'Success' }" class="sapUiSmallMargin"/>
+								</CustomListItem>
+							</List>
+						</content>
+					</Panel>
+					<!--<content>-->
+					<!--	<Button text="{i18n>showHelloButtonText}" press=".onShowHello"/>-->
+					<!--	<Input value=" " description="Hello" valueLiveUpdate="true" width="60%"/>-->
+					<!--	<List items="{/PAGOSSet}">-->
+					<!--	<StandardListItem type="Active" press="handleListItemPress" title="{Vbeln}"/>-->
+					<!--		<ObjectListItem type="Navigation" press="handleListItemPress" title="{Vbeln}">-->
+					<!--			<attributes>-->
+					<!--				<ObjectAttribute text="Factura relacionada: {VbelnF}"/>-->
+					<!--			</attributes>-->
+					<!--			<firstStatus>-->
+					<!--				<ObjectStatus text="{= ${Xdel}? 'Estatus Borrado' : 'Pago Activo' }" state="{= ${Xdel}? 'Error' : 'Success' }"/>-->
+					<!--			</firstStatus>-->
+					<!--		</ObjectListItem>-->
+					<!--	</List>-->
+					<!--</content>-->
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+	<!--<f:DynamicPage id="page" fitContent="true" headerExpanded="false" toggleHeaderOnTitleClick="false" class="sapUiNoContentPadding"-->
+	<!--	backgroundDesign="List">-->
+	<!--	<f:title>-->
+	<!--		<f:DynamicPageTitle>-->
+	<!--			<f:heading>-->
+	<!--				<Title text="Doc.FI Pagos"/>-->
+	<!--			</f:heading>-->
+	<!--		</f:DynamicPageTitle>-->
+	<!--	</f:title>-->
+	<!--	<f:content>-->
+	<!--		<List id="masterList" growing="true" growingScrollToLoad="true" mode="SingleSelectMaster" items="{/PAGOSSet}"-->
+	<!--			itemPress=".navToDetailOf({/PAGOSSet})">-->
+	<!--			<StandardListItem icon="sap-icon://person-placeholder" title="{VbelnF}" info="{Xdel}" infoState="Information" type="Navigation"/>-->
+	<!--		</List>-->
+	<!--	</f:content>-->
+	<!--</f:DynamicPage>-->
+</mvc:View>

@@ -1,0 +1,21 @@
+{
+  "welcomeFile": "/app/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/DestDesNEORichie/(.*)$",
+      "target": "$1",
+      "authenticationType": "none",
+      "destination": "DestDesNEORichie",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/app/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    }
+  ]
+}

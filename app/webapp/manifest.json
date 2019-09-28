@@ -1,0 +1,146 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "zapata.mx.app",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZGW_COMPLEMENTO_PAG_SRV": {
+				"uri": "/sap/opu/odata/sap/ZGW_COMPLEMENTO_PAG_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "zapata.mx.app.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"config": {
+			"sample": {
+				"stretch": true,
+				"files": ["DetailFI.view.xml", "DetailFI.controller.js", "Change.fragment.xml", "Display.fragment.xml",
+					"test/FormSampleJourney.qunit.html", "manifest.json"
+				]
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "zapata.mx.app.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZGW_COMPLEMENTO_PAG_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "zapata.mx.app.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "home",
+				"pattern": "",
+				"target": ["TargetView1"]
+			}, {
+				"name": "DetailFI",
+				"pattern": "detailfi/{VbelnID}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["DetailFI"]
+			}, {
+				"name": "VitaPag",
+				"pattern": "vitaPag/{VbelnID}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["VitaPag"]
+			}],
+			"targets": {
+				"TargetView1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "View1",
+					"viewName": "View1",
+					"viewLevel": 1
+				},
+				"App": {
+					"viewType": "XML",
+					"viewName": "App"
+				},
+				"DetailFI": {
+					"viewType": "XML",
+					"viewName": "DetailFI",
+					"viewLevel": 2
+				},
+				"VitaPag": {
+					"viewType": "XML",
+					"viewName": "VitaPag",
+					"viewLevel": 3
+				}
+			}
+		}
+	}
+}

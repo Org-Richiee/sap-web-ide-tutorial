@@ -1,0 +1,43 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="zapata.mx.app.controller.VitaPag"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+	<!--<App>-->
+	<!--	<pages>-->
+	<!--		<Page title="Title">-->
+	<!--			<content>-->
+	<!--			    <-->
+	<!--			</content>-->
+	<!--		</Page>-->
+	<!--	</pages>-->
+	<!--</App>-->
+	<!--<Page title="{i18n>PagoTitle}" showNavButton="true" navButtonPress="handleNavButtonPress">-->
+	<!--	<VBox>-->
+	<!--		<Text text="{Vbeln}"/>-->
+	<!--		<Text text="{Vbeln}" id="idp"/>-->
+	<!--		<Text text="{VbelnF}" id="text11"/>-->
+	<!--		<Text text="{Cons}" id="text12"/>-->
+	<!--		<Text text="{Gjahr}" id="text13"/>-->
+	<!--		<Text text="{Sociedad}" id="text14"/>-->
+	<!--		<Text text="{Xfecpag}" id="text15"/>-->
+	<!--		<Text text="{Xmoneda}" id="text17"/>-->
+	<!--		<Text text="{Modulo}" id="text18"/>-->
+	<!--		<Text text="{XimportePago}" id="text16"/>-->
+	<!--		<Text text="{Docu}" id="text19"/>-->
+	<!--		<Text text="{Modulo}" id="text20"/>-->
+	<!--	</VBox>-->
+	<!--</Page>-->
+	<Page title="{i18n>PagoTitle}" showNavButton="true" navButtonPress="handleNavButtonPress">
+		<l:VerticalLayout class="sapUiContentPadding" width="50%">
+			<Label text="Datos de entrada de pago" width="100%" id="Titulo" busyIndicatorSize="Auto"/>
+			<Label text="Pedido:" width="100%" id="label1_1566922317957" busyIndicatorSize="Auto"/>
+			<Input xmlns="sap.m" value="{Vbeln}" id="id" width="50%"/>
+			<Label text="Factura:" width="100%" id="lf" busyIndicatorSize="Auto"/>
+			<Input xmlns="sap.m" value="{Vbelnf}" id="idfact" width="50%"/>
+			<Label text="Ejercicio:" width="100%" id="le" busyIndicatorSize="Auto"/>
+			<Input xmlns="sap.m" value="{Gjahr}" id="ideje" width="50%"/>
+			<Label text="Fecha de Pago:" width="100%" id="lfp" busyIndicatorSize="Auto"/>
+			<DatePicker displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="true" navigate="onclickDate" value="31-12-9999"/>
+			<!--<Input xmlns="sap.m" value="{Gjahr}" id="idfp" width="50%"/>-->
+			<Button xmlns="sap.m" text="Guardar Pago" id="guardar" icon="sap-icon://world" press="oDataPag"/>
+		</l:VerticalLayout>
+	</Page>
+</mvc:View>

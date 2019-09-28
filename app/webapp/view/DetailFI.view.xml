@@ -1,0 +1,71 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" controllerName="zapata.mx.app.controller.DetailFI">
+	<Page title="{i18n>DetailTitle}" showNavButton="true" navButtonPress="handleNavButtonPress" backgroundDesign="Solid">
+		<headerContent>
+			<Button xmlns="sap.m" text="Generar Pago" id="pagar" icon="sap-icon://paid-leave" press="oDataCallPago"/>
+		</headerContent>
+		<Table noDataText="Drop column list items here and columns in the area above" id="detalleFI">
+			<items>
+				<ColumnListItem type="Active" id="item1">
+					<cells>
+						<Text text="{Vbeln}" id="idp"/>
+						<Text text="{VbelnF}" id="text11"/>
+						<Text text="{Cons}" id="text12"/>
+						<Text text="{Gjahr}" id="text13"/>
+						<Text text="{Sociedad}" id="text14"/>
+						<!--<Text text="{Xfecpag}" id="text15"/>-->
+						<!--<Text text="{Xmoneda}" id="text17"/>-->
+						<Text text="{Modulo}" id="text18"/>
+						<Text text="{XimportePago}" id="text16"/>
+						<!--<Text text="{Docu}" id="text19"/>-->
+						<!--<Text text="{Modulo}" id="text20"/>-->
+					</cells>
+				</ColumnListItem>
+			</items>
+			<columns>
+				<Column id="column0">
+					<header>
+						<Label text="Pedido" id="label0"/>
+					</header>
+				</Column>
+				<Column id="column1">
+					<header>
+						<Label text="Factura" id="label1"/>
+					</header>
+				</Column>
+				<Column id="column2">
+					<header>
+						<Label text="Consecutivo" id="label2"/>
+					</header>
+				</Column>
+				<Column id="column3">
+					<header>
+						<Label text="Ejercicio" id="label3"/>
+					</header>
+				</Column>
+				<Column id="column4">
+					<header>
+						<Label text="Sociedad" id="label4"/>
+					</header>
+				</Column>
+				<Column id="column5">
+					<header>
+						<Label text="Modulo" id="label5"/>
+					</header>
+				</Column>
+				<Column id="column6">
+					<header>
+						<Label text="Importe de Pago" id="label6"/>
+					</header>
+				</Column>
+			</columns>
+		</Table>
+		<l:VerticalLayout class="sapUiContentPadding" width="50%">
+			<Label text="Actualización del dato" width="100%" id="Titulo" busyIndicatorSize="Auto"/>
+			<Label text="Modulo:" width="100%" id="label1_1566922317957" busyIndicatorSize="Auto"/>
+			<Input xmlns="sap.m" value="{Modulo}" id="actModulo" width="50%"/>
+			<Button xmlns="sap.m" text="Actualizar Modulo" id="ubtn" icon="sap-icon://world" press="oDataCall"/>
+		</l:VerticalLayout>
+		<customHeader></customHeader>
+	</Page>
+</mvc:View>
